@@ -10,6 +10,20 @@ var cache = function(api, next){
   api.cache.lockRetry    = 100;
 
   api.cache._start = function(api, callback){
+    if ( !api.config.general.developmentMode ) {
+      // do not run this on startup in the production environment, as KEYS may ruin redis performance:
+      //
+      // http://redis.io/commands/KEYS
+      //
+      // "Warning: consider KEYS as a command that should only be used in production environments with
+      // extreme care. It may ruin performance when it is executed against large databases. This
+      // command is intended for debugging and special operations, such as changing your keyspace
+      // layout. Don't use KEYS in your regular application code. If you're looking for a way to find
+      // keys in a subset of your keyspace, consider using SCAN or sets.
+      callback();
+      return;
+    }
+
     api.cache.size(function(err, count){
       if(err){
         api.log('error connecting to the cache: ' + String(err), 'fatal');
