@@ -36,7 +36,9 @@ var stats = function(api, next){
           var multi = api.redis.client.multi();
           for(var key in pendingIncrements){
             var value = pendingIncrements[key];
-            multi.hincrby(collection, key, value);
+            if ( value != 0 ) {
+              multi.hincrby(collection, key, value);
+            }
           }
           multi.exec(function(){
             started--;
