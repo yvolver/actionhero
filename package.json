@@ -39,6 +39,7 @@
     "ws": "~0.5.0",
     "optimist": "~0.6.1",
     "winston": "~0.8.1",
+    "newrelic": "~1.14.7",
     "node-uuid": "~1.4.1",
     "fakeredis": "~0.2.0",
     "primus": "~2.4.0",

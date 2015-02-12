@@ -75,7 +75,7 @@ var redis = function(api, next){
       api.redis.status.subscribed = false;
     });
 
-    api.redis.client.on('connect', function(){
+    api.redis.client.on('connect', api.utils.createTracer( 'ah:redis:connect', function(){
       if(api.config.redis.password && api.config.redis.password !== ''){
         api.redis.client.auth(api.config.redis.password);
       }
@@ -88,9 +88,9 @@ var redis = function(api, next){
           callback(); 
         }
       });
-    });
+    }));
 
-    api.redis.subscriber.on('connect', function(){
+    api.redis.subscriber.on('connect', api.utils.createTracer( 'ah:redis-subscriber:connect', function(){
       if(api.config.redis.password && api.config.redis.password !== ''){
         api.redis.subscriber.auth(api.config.redis.password);
       }
@@ -103,7 +103,7 @@ var redis = function(api, next){
           callback();
         }
       });
-    });
+    }));
 
     if(api.config.redis.package === 'fakeredis'){
       api.redis.status.client = true;

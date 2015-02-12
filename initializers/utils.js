@@ -273,6 +273,12 @@ var utils = function(api, next){
     return {host: host, port: parseInt(port,10)}
   }
 
+  ////////////////////////////////////////////////////////////////////////////
+  // code tracing support, ala New Relic
+  api.utils.createTracer = function ( tracerName, callback ) {
+    return require('newrelic').createTracer( tracerName, callback );
+  };
+
 ////////////////////////////////////////////////////////////////////////////
 // EXPORT
   next();
