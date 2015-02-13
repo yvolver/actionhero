@@ -375,7 +375,7 @@ var web = function(api, options, next){
           for(i in api.config.servers.web.formOptions){
             connection.rawConnection.form[i] = api.config.servers.web.formOptions[i];
           }
-          connection.rawConnection.form.parse(connection.rawConnection.req, function(err, fields, files) {
+          connection.rawConnection.form.parse(connection.rawConnection.req, api.utils.createTracer( 'ah:server:determineRequestParams:formidable', function(err, fields, files) {
             if(err){
               server.log('error processing form: ' + String(err), 'error');
               connection.error = new Error('There was an error processing this form.');
@@ -388,7 +388,7 @@ var web = function(api, options, next){
             if(api.config.servers.web.queryRouting !== true){ connection.params.action = null; }
             api.routes.processRoute(connection, pathParts);
             callback(requestMode);
-          });
+          }));
         }else{
           if(api.config.servers.web.queryRouting !== true){ connection.params.action = null; }
           api.routes.processRoute(connection, pathParts);
