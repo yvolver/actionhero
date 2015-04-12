@@ -377,7 +377,7 @@ var web = function(api, options, next){
           }
           connection.rawConnection.form.parse(connection.rawConnection.req, api.utils.createTracer( 'ah:server:determineRequestParams:formidable', function(err, fields, files) {
             if(err){
-              server.log('error processing form: ' + String(err), 'error');
+              server.log('error processing form: ' + String(err), 'error', connection.rawConnection.req.headers);
               connection.error = new Error('There was an error processing this form.');
             } else {
               connection.rawConnection.params.body = fields;
