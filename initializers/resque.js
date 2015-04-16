@@ -102,10 +102,10 @@ var resque = function(api, next){
         worker.on('start',           function(){                   api.log('resque worker #'+(counter+1)+' started (queues: ' + worker.options.queues + ')', 'info'); })
         worker.on('end',             function(){                   api.log('resque worker #'+(counter+1)+' ended', 'info'); })
         worker.on('cleaning_worker', function(worker, pid){        api.log('resque cleaning old worker ' + worker + '(' + pid + ')', 'info'); })
-        worker.on('poll',            function(queue){              api.log('resque worker #'+(counter+1)+' polling ' + queue, 'debug'); })
+        // worker.on('poll',            function(queue){              api.log('resque worker #'+(counter+1)+' polling ' + queue, 'debug'); })
         worker.on('job',             function(queue, job){         api.log('resque worker #'+(counter+1)+' working job ' + queue, 'debug', {job: {class: job.class, queue: job.queue}}); })
         worker.on('success',         function(queue, job, result){ api.log('resque worker #'+(counter+1)+' job success ' + queue, 'info', {job: {class: job.class, queue: job.queue}, result: result}); })
-        worker.on('pause',           function(){                   api.log('resque worker #'+(counter+1)+'  paused', 'debug'); })
+        // worker.on('pause',           function(){                   api.log('resque worker #'+(counter+1)+'  paused', 'debug'); })
         worker.on('failure',         function(queue, job, f){ api.exceptionHandlers.task(f, queue, job) })
         worker.on('error',           function(queue, job, error){ api.exceptionHandlers.task(error, queue, job) })
 
