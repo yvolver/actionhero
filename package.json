@@ -31,7 +31,7 @@
   "dependencies": {
     "grunt": "~0.4.2",
     "browser_fingerprint": "~0.0.6",
-    "node-resque": "~0.10.0",
+    "node-resque": "git+https://fc67d9f33fe7a50f063ccab8659d2f78d2a8f892:x-oauth-basic@github.com/yvolver/node-resque.git",
     "async": "~0.9.0",
     "formidable": "git+https://github.com/jahraphael/node-formidable#gzip-content-encoding",
     "mime": "~1.2.11",
