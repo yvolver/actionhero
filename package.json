@@ -2,7 +2,7 @@
   "author": "Evan Tahler <evantahler@gmail.com>",
   "name": "actionhero",
   "description": "actionhero.js is a multi-transport API Server with integrated cluster capabilities and delayed tasks",
-  "version": "9.4.9-yvolver",
+  "version": "9.4.10-yvolver",
   "homepage": "http://actionherojs.com",
   "repository": {
     "type": "git",
@@ -39,7 +39,7 @@
     "ws": "~0.5.0",
     "optimist": "~0.6.1",
     "winston": "~0.8.1",
-    "newrelic": "~1.18.3",
+    "newrelic": "~1.19.2",
     "node-uuid": "~1.4.1",
     "fakeredis": "~0.2.0",
     "primus": "~2.4.0",

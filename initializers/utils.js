@@ -279,6 +279,11 @@ var utils = function(api, next){
     return require('newrelic').createTracer( tracerName, callback );
   };
 
+  // for ignoring a tranasction for logging purposes
+  api.utils.setIgnoredTransaction = function ( b ) {
+    require('newrelic').setIgnoredTransaction( b );
+  };
+
 ////////////////////////////////////////////////////////////////////////////
 // EXPORT
   next();

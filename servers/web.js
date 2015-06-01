@@ -95,6 +95,7 @@ var web = function(api, options, next){
   }
 
   server.sendFile = function(connection, error, fileStream, mime, length){
+    api.utils.setIgnoredTransaction(true);
     var traceWrapper = api.utils.createTracer( 'ah:server:sendFile', function () {
       var foundExpires = false;
       var foundCacheControl = false;
