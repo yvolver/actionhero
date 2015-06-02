@@ -280,8 +280,8 @@ var utils = function(api, next){
   };
 
   // for ignoring a tranasction for logging purposes
-  api.utils.setIgnoredTransaction = function ( b ) {
-    require('newrelic').setIgnoredTransaction( b );
+  api.utils.setIgnoreTransaction = function ( b ) {
+    require('newrelic').setIgnoreTransaction( b );
   };
 
 ////////////////////////////////////////////////////////////////////////////
