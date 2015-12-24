@@ -286,12 +286,13 @@ var utils = function(api, next){
     };
   } else {
     api.utils.createTracer = function ( tracerName, callback ) {
-      return require('newrelic').createTracer( tracerName, callback );
+      // return require('newrelic').createTracer( tracerName, callback );
+      return callback;
     }
 
     // for ignoring a tranasction for logging purposes
     api.utils.setIgnoreTransaction = function ( b ) {
-      require('newrelic').setIgnoreTransaction( b );
+      // require('newrelic').setIgnoreTransaction( b );
     };
   }
 
