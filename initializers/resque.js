@@ -1,6 +1,6 @@
 var os    = require('os');
 var async = require('async');
-var NR    = require('node-resque');
+var NR    = require('adc-node-resque');
 
 var resque = function(api, next){
 

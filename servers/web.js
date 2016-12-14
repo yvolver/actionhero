@@ -1,7 +1,7 @@
 var url                 = require('url');
 var fs                  = require('fs');
 var path                = require('path');
-var formidable          = require('formidable');
+var formidable          = require('adc-formidable');
 var browser_fingerprint = require('browser_fingerprint');
 var Mime                = require('mime');
 
